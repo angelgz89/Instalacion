@@ -64,7 +64,7 @@ function sist ()
 function Sistemas ()
 {
     echo -e "${lila}En que sistema operativo estas?" $OSS "${endColour}"
-    echo -e "${verde}Xubuntu, Debian11, Rasbperry, Mint xfce, UbuntuServer" $OSS "${endColour}"
+    echo -e "${verde}Xubuntu, Debian11, Rasbperry, Rasbperry Lite, Mint xfce, UbuntuServer" $OSS "${endColour}"
     read OSS
     clear
 
