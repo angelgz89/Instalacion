@@ -10,8 +10,12 @@ function actualizarlimpiar ()
 	sudo apt update -y > /dev/null 2>&1
 	sudo apt full-upgrade -y > /dev/null 2>&1
 	sudo apt update -y > /dev/null 2>&1
-	sudo apt autoremove -y > /dev/null 2>&1
+    apt-get autoremove -y > /dev/null 2>&1
+    apt-get autoclean -y > /dev/null 2>&1
 	sudo apt --fix-broken install -y > /dev/null 2>&1
+    find /var/log -type f -delete > /dev/null 2>&1
+    rm -rf /usr/share/man/* > /dev/null 2>&1
+
     #rm -rf ~/.local/share/Trash/*
     # sudo rm -rf /tmp/*
     # sudo rm -vfr /tmp/* >/dev/null 2>&1
