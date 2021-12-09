@@ -1,4 +1,18 @@
-#! /bin/bash
+#!/bin/bash
+
+#Colores
+VERDE="\e[0;32m\033[1m"
+ROJO="\e[0;31m\033[1m"
+AZUL="\e[0;34m\033[1m"
+AMARILLO="\e[0;33m\033[1m"
+VIOLETA="\e[0;35m\033[1m"
+CYAN="\e[0;36m\033[1m"
+GRIS="\e[0;37m\033[1m"
+NEGRO="\e[0;30m\033[1m"
+endColour="\033[0m\e[0m"
+
+################################################################
+
 
 function sist ()
 {
@@ -22,7 +36,7 @@ function sist ()
     lsb_release -d | grep "Raspbian" > /dev/null 2>&1
     if [ "$(echo $?)" == "0" ];
     then
-        OSS="Rasbperry"
+        OSS="Raspberry"
     fi
 
     if [[ $sis = "XDG_CURRENT_DESKTOP=GNOME" ]];
@@ -41,11 +55,6 @@ function sist ()
 
 	if [[ $sis = "XDG_CURRENT_DESKTOP=Pantheon" ]];
 	then
-        lsb_release -d | grep "elementary OS 5"
-		if [ "$(echo $?)" == "0" ];
-		then
-		    OSS="ElementaryOS5"
-        fi
         lsb_release -d | grep "elementary OS 6"
 		if [ "$(echo $?)" == "0" ];
 		then
@@ -63,21 +72,15 @@ function sist ()
 
 function Sistemas ()
 {
-    echo -e "${lila}En que sistema operativo estas?" $OSS "${endColour}"
-    echo -e "${verde}Xubuntu, Debian11, Rasbperry, Rasbperry Lite, Mint xfce, UbuntuServer" $OSS "${endColour}"
-    read OSS
-    clear
-
-    echo -e "${lila}Instalando programas para" $OSS "${endColour}"
-    echo -e "${turquesa}Eliminando programas preinstalados...${endColour}"
 
     if [[ $OSS == "Xubuntu" ]]
     then
         
-        sudo apt remove --purge -y onboard mousepad gnome-font-viewer gucharmap info libreoffice-base-core xfburn atril xfce4-dict xfce4-taskmanager pidgin xfce4-screenshooter thunderbird catfish gnome-sudoku gnome-mines sgt-launcher ristretto gimp simple-scan > /dev/null 2>&1
+        sudo apt remove --purge -y onboard mousepad gnome-font-viewer gucharmap info libreoffice-common libreoffice-base-core xfburn atril xfce4-dict xfce4-taskmanager pidgin xfce4-screenshooter thunderbird catfish gnome-sudoku gnome-mines sgt-launcher ristretto gimp simple-scan > /dev/null 2>&1
         sudo add-apt-repository ppa:xubuntu-dev/staging -y > /dev/null 2>&1
 
-        Basicos
+        actualizarlimpiar
+        ZSH
         Nomacs
         Utilidaddiscos
         Monitorsistema
@@ -88,34 +91,22 @@ function Sistemas ()
         Sublime
         Transmission
         Temas
-
-        actualizarlimpiar
     fi
 
     if [[ $OSS == "Debian11" ]]
     then
-        sudo apt remove --purge -y libreoffice-common tali gnome-taquin gnome-maps gnome-weather gnome-sudoku gnome-robots gnome-tetravex gnome-nibbles quadrapassel swell-foop aisleriot gnome-mahjongg
+        sudo apt remove --purge -y libreoffice-common libreoffice-base-core tali gnome-taquin gnome-maps gnome-weather gnome-sudoku gnome-robots gnome-tetravex gnome-nibbles quadrapassel swell-foop aisleriot gnome-mahjongg
 
         actualizarlimpiar
-    
     fi
 
-    if [[ $OSS == "Rasbperry" ]]
+    if [[ $OSS == "Raspberry" ]]
     then
         sudo apt remove --purge thonny -y 
         sudo apt remove --purge geany -y
         actualizarlimpiar
         sudo apt dist-upgrade -y 
         sudo rpi-update -y
-        Basicos
-        actualizarlimpiar
-    fi
-
-    if [[ $OSS == "Rasbperry Lite" ]]
-    then
-        sudo apt dist-upgrade -y > /dev/null 2>&1
-        sudo rpi-update -y > /dev/null 2>&1
-        Basicos
         actualizarlimpiar
     fi
 
@@ -129,17 +120,16 @@ function Sistemas ()
 
     if [[ $OSS == "UbuntuServer" ]]
     then
-        Basicos
+        
     fi
 
     if [[ $OSS == "Ubuntu" ]]
     then
-        Basicos
+        
     fi
 
     if [[ $OSS == "ElementaryOS6" ]]
     then
-        Basicos
         sudo apt install software-properties-common -y > /dev/null 2>&1
         sudo add-apt-repository ppa:philip.scott/pantheon-tweaks -y > /dev/null 2>&1
         actualizarlimpiar

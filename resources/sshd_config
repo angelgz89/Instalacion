@@ -1,0 +1,57 @@
+Include /etc/ssh/sshd_config.d/*.conf
+
+AcceptEnv LANG LC_*
+
+# Puerto
+Port 34
+
+# Usuarios
+PermitRootLogin no
+AllowUsers angel
+
+# Contraseña o Clave publica
+PasswordAuthentication yes
+PermitEmptyPasswords no
+#AuthenticationMethods publickey
+#PubkeyAuthentication yes
+
+# Depending on your 2FA option, you may need to enable some of these options, but they should be disabled by default
+ChallengeResponseAuthentication no
+#PasswordAuthentication no
+
+# Disable connection multiplexing which can be used to bypass authentication
+MaxSessions 2
+
+# Bloquear clientes 30 minutos despues de fallar 2 intentos de login
+MaxAuthTries 2
+LoginGraceTime 30
+
+# Enable PAM authentication
+UsePAM yes
+
+# Disable Kerberos based authentication
+KerberosAuthentication no
+KerberosGetAFSToken no
+KerberosOrLocalPasswd no
+KerberosTicketCleanup yes
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+
+# Disable user environment forwarding
+X11Forwarding no
+AllowTcpForwarding no
+AllowAgentForwarding no
+PermitUserRC no
+PermitUserEnvironment no
+
+# We want to log all activity
+LogLevel INFO
+SyslogFacility AUTHPRIV
+
+# What messages do you want to present your users when they log in?
+Banner none
+PrintMotd no
+PrintLastLog yes
+
+# override default of no subsystems
+Subsystem sftp  /usr/lib/openssh/sftp-server
