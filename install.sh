@@ -39,7 +39,7 @@ function MENU ()
     echo -e "${VERDE}Por favor, elige una opción ${endColour}"
     read op
 
-    while [ $op != "0" ] && [ $op != "1" ] && [ $op != "2" ] &&  [ $op != "3" ] && [ $op != "4" ] 
+    while [ $op -le 0 ] && [ $op -ge 4 ];
     do
         echo -e "${ROJO}Opcion incorrecta, por favor ingresa una opcion correcta ${endColour}"
         read op
