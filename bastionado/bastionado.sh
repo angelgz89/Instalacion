@@ -17,22 +17,22 @@ endColour="\033[0m\e[0m"
 function BastionadoSSH ()
 {
     sudo touch $HOME/.hushlogin
-    sudo cp $HOME/Installs/resources/sshd_config /etc/ssh/
+    sudo cp ./resources/sshd_config /etc/ssh/
     sudo systemctl restart ssh
     echo -e "${AMARILLO}[*]${endColour}${VERDE} SSH Bastionado${endColour}"
 }
 
 function BastionadoIP6 ()
 {
-    sudo cp $HOME/Installs/resources/sysctl.conf /etc/sysctl.conf
-    sudo cp $HOME/Installs/resources/grub /etc/default/grub
+    sudo cp ./resources/sysctl.conf /etc/sysctl.conf
+    sudo cp ./resources/grub /etc/default/grub
     echo -e "${AMARILLO}[*]${endColour}${VERDE} IP6 Bastionado${endColour}"
 }
 
 function BastionadoFail2Ban ()
 {
     sudo apt install fail2ban -y > /dev/null 2>&1
-    cp $HOME/Installs/resources /etc/fail2ban/jail.conf
+    cp ./resources /etc/fail2ban/jail.conf
     sudo systemctl restart fail2ban
     echo -e "${AMARILLO}[*]${endColour}${VERDE} Fail2Ban Bastionado${endColour}"
 }
