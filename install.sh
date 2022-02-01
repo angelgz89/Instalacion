@@ -22,6 +22,8 @@ endColour="\033[0m\e[0m"
 
 #########################################################
 
+actualizarlimpiar
+
 function MENU ()
 {
     echo "" 
