@@ -120,12 +120,12 @@ function Sistemas ()
 
     if [[ $OSS == "UbuntuServer" ]]
     then
-        
+        echo UbuntuServer
     fi
 
     if [[ $OSS == "Ubuntu" ]]
     then
-        
+        echo Ubuntu
     fi
 
     if [[ $OSS == "ElementaryOS6" ]]
