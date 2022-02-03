@@ -59,7 +59,7 @@ function Basicos ()
     fi
 
     #######################################################################################
-    sudo dpkg -l | grep -i "lm-sensors" > /dev/null 2>&1
+    sudo dpkg -l | grep -i "rsync" > /dev/null 2>&1
 	if [ "$(echo $?)" == "1" ]
 	then
         sudo apt install rsync -y > /dev/null 2>&1
@@ -137,6 +137,9 @@ function Basicos ()
     #sudo apt-get install build-essential gcc make perl dkms -y > /dev/null 2>&1
     #sudo apt install software-properties-common apt-transport-https -y > /dev/null 2>&1
     #echo -e "${AMARILLO}[*]${endColour}${VERDE} Accesorios Instalados${endColour}"
+    ZSH
+    BTOP
+    actualizarlimpiar
 }
 
 function ZSH () 
@@ -149,6 +152,8 @@ function ZSH ()
     cp $HOME/Instalacion/resources/.zshrc $HOME
 
     echo $cont | sudo -S chsh -s $(which zsh)
+
+    cp $HOME/Instalacion/resources/.zshrc $HOME
 }
 
 function BTOP ()

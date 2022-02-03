@@ -113,7 +113,6 @@ function Sistemas ()
     if [[ $OSS == "Mint xfce" ]]
     then
         sudo apt remove --purge -y libreoffice-core libreoffice-common libreoffice-base-core onboard mintreport drawing sticky hypnotix simple-scan hexchat xfce4-dict xed gnome-font-viewer xreader thunderbird gnome-logs redshift-gtk gucharmap -y > /dev/null 2>&1
-        Basicos
         actualizarlimpiar
         
     fi
