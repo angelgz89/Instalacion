@@ -144,16 +144,25 @@ function Basicos ()
 
 function ZSH () 
 {
-    sudo apt install git zsh zsh-antigen -y > /dev/null 2>&1
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    sudo apt install git zsh -y > /dev/null 2>&1
+    wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh > /dev/null 2>&1
+    clear
     sudo git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions > /dev/null 2>&1
     sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting > /dev/null 2>&1
+        
+    echo "" > .zshrc
+        
+    echo '
+    export ZSH=$HOME/.oh-my-zsh
+    ZSH_THEME="bira"
+    plugins=(git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    )
+    source $ZSH/oh-my-zsh.sh
+    export PATH="$PATH:$HOME/Scripts/Linux"' > .zshrc
 
-    cp $HOME/Instalacion/resources/.zshrc $HOME
-
-    echo $cont | sudo -S chsh -s $(which zsh)
-
-    cp $HOME/Instalacion/resources/.zshrc $HOME
+    zsh -l
 }
 
 function BTOP ()
