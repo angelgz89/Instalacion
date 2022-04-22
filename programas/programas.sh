@@ -137,9 +137,10 @@ function Basicos ()
     #sudo apt-get install build-essential gcc make perl dkms -y > /dev/null 2>&1
     #sudo apt install software-properties-common apt-transport-https -y > /dev/null 2>&1
     #echo -e "${AMARILLO}[*]${endColour}${VERDE} Accesorios Instalados${endColour}"
-    ZSH
+    
     BTOP
     actualizarlimpiar
+    ZSH
 }
 
 function ZSH () 
