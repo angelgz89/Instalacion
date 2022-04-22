@@ -160,7 +160,7 @@ function ZSH ()
     zsh-syntax-highlighting
     )
     source $ZSH/oh-my-zsh.sh
-    export PATH="$PATH:$HOME/Scripts/Linux"' > .zshrc
+    export PATH="$PATH:$HOME/Scripts/Linux"' > ~/.zshrc
 
     zsh -l
 }
