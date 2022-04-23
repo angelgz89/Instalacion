@@ -147,7 +147,7 @@ function ZSH ()
 {
     sudo apt install git zsh -y > /dev/null 2>&1
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh > /dev/null 2>&1
-    clear
+
     sudo git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions > /dev/null 2>&1
     sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting > /dev/null 2>&1
         
@@ -161,9 +161,11 @@ function ZSH ()
     zsh-syntax-highlighting
     )
     source $ZSH/oh-my-zsh.sh
-    export PATH="$PATH:$HOME/Scripts/Linux"' > ~/.zshrc
+    export PATH="$PATH:$HOME/Scripts/Linux"' > .zshrc
 
-    zsh -l
+    #zsh -l
+    echo $cont | chsh -s $(which zsh)
+    clear
 }
 
 function BTOP ()
