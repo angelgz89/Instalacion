@@ -165,7 +165,8 @@ function ZSH ()
 
     #zsh -l
     echo $cont | chsh -s $(which zsh)
-    clear
+    echo ""
+    echo -e "${AMARILLO}[*]${endColour}${VERDE} ZSH Instalado${endColour}"
 }
 
 function BTOP ()
